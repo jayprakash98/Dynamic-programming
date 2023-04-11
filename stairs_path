@@ -1,0 +1,34 @@
+class Solution
+{
+    //Function to count number of ways to reach the nth stair.
+    int countWays(int n)
+    {
+        
+        // your code here
+        int mod=10^9+7;
+        
+        return (helper(n,0,new int [n+1]));
+        
+    }
+    int helper(int n,int N,int[] qb){
+        // int N=n;
+        // int mod=10^9+7;
+        int mod = 1000000007;
+
+        if(N>n){
+            return 0;
+        }
+        if(N==n){
+            return 1;
+        }
+        if(qb[N]!=0){
+            return qb[N];
+        }
+        
+        int path1=helper(n,N+1,qb);
+        int path2=helper(n,N+2,qb);
+        int count=(path1+path2)%mod;
+        qb[N]=count;
+        return count;
+    }
+}
