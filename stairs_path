@@ -5,7 +5,7 @@ class Solution
     {
         
         // your code here
-        int mod=10^9+7;
+
         
         return (helper(n,0,new int [n+1]));
         
